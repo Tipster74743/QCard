@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4 class="title">Sign in With Email or Phone</h4>
+
+  <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Email or Phone" name="username" id="loginField" type="text" required [(ngModel)]="username" #email></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Password" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" block type="submit" [disabled]="!loginForm.form.valid">Sign In
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-row>
+    <ion-col>
+      <button ion-button color="light" (click)="signUp()" block>Need an account?</button>
+      <button ion-button color="light" block>Sign in with</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

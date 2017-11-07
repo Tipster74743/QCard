@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        Logout
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>QCard</h3>
+
+  <div *ngIf="user">
+    <hr>
+    <p>You are logged in as: <b>{{ user.name }}</b></p>
+  </div>
+
+  <p>
+    <button ion-button color="primary" menuToggle>Toggle Menu</button>
+  </p>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar padding-horizontal>
+    <ion-buttons start>
+      <button ion-button>
+        <ion-icon name="contacts"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons text-center>
+      <button ion-button>
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sign Up
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4 class="title">Create an Account</h4>
+
+  <form #signUpForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input name="firstName" id="firstName" type="text" required [(ngModel)]="user.firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input name="lastName" id="lastName" type="text" required [(ngModel)]="user.lastName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input name="phone" id="phone" type="tel" required [(ngModel)]="user.phone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input name="email" id="email" type="text" required [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input name="password" id="password" type="password" required [(ngModel)]="user.password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" block type="submit" [disabled]="!signUpForm.form.valid">Register
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="light" (click)="login()" block>Already have an account?</button>
+    </ion-col>
+  </ion-row>
+</ion-content>
